@@ -1,0 +1,18 @@
+{
+  "name": "medapp",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Medical appointments and clinical history registry",
+  "license": "UNLICENSED",
+  "scripts": {
+    "test:e2e": "playwright test",
+    "test:e2e:list": "playwright test --list",
+    "up": "docker compose up -d --build",
+    "down": "docker compose down"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.49.1",
+    "@types/node": "20.17.10",
+    "typescript": "5.7.2"
+  }
+}

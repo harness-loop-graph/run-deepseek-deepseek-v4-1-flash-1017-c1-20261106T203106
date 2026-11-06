@@ -1,0 +1,70 @@
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: medapp-db
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-medapp}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-medapp}
+      POSTGRES_DB: ${POSTGRES_DB:-medapp}
+      TZ: UTC
+    ports:
+      - "5432:5432"
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U \"$${POSTGRES_USER}\" -d \"$${POSTGRES_DB}\""]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+  backend:
+    build:
+      context: ./backend
+    container_name: medapp-backend
+    environment:
+      NODE_ENV: production
+      PORT: "3000"
+      DATABASE_HOST: db
+      DATABASE_PORT: "5432"
+      DATABASE_USER: ${POSTGRES_USER:-medapp}
+      DATABASE_PASSWORD: ${POSTGRES_PASSWORD:-medapp}
+      DATABASE_NAME: ${POSTGRES_DB:-medapp}
+      SEED_PASSWORD: ${SEED_PASSWORD:-Seed!Passw0rd}
+      SPA_ORIGIN: ${SPA_ORIGIN:-http://localhost:8080}
+      UPLOAD_DIR: /app/uploads
+      AUTH_RATE_LIMIT_PER_MINUTE: ${AUTH_RATE_LIMIT_PER_MINUTE:-5}
+      BOOKING_RATE_LIMIT_PER_MINUTE: ${BOOKING_RATE_LIMIT_PER_MINUTE:-10}
+      TZ: UTC
+    ports:
+      - "3000:3000"
+    volumes:
+      - attachments:/app/uploads
+    depends_on:
+      db:
+        condition: service_healthy
+    healthcheck:
+      test:
+        [
+          "CMD-SHELL",
+          "node -e \"fetch('http://127.0.0.1:3000/health').then(function(r){process.exit(r.ok?0:1)}).catch(function(){process.exit(1)})\"",
+        ]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+      start_period: 30s
+
+  frontend:
+    build:
+      context: ./frontend
+      args:
+        VITE_API_BASE_URL: ${VITE_API_BASE_URL:-http://localhost:3000}
+    container_name: medapp-frontend
+    ports:
+      - "8080:8080"
+    depends_on:
+      backend:
+        condition: service_healthy
+
+volumes:
+  db-data:
+  attachments:

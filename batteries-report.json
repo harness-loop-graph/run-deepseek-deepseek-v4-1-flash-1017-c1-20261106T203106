@@ -1,0 +1,260 @@
+{
+  "timestamp": "2026-11-06T22:45:38.250Z",
+  "batteries": [
+    {
+      "battery": "battery1-e2e",
+      "passed": false,
+      "checks": [
+        {
+          "name": "flows.spec.ts > login per role > login patient shows correct nav",
+          "passed": true,
+          "details": ""
+        },
+        {
+          "name": "flows.spec.ts > login per role > login professional shows correct nav",
+          "passed": true,
+          "details": ""
+        },
+        {
+          "name": "flows.spec.ts > login per role > login staff shows correct nav",
+          "passed": true,
+          "details": ""
+        },
+        {
+          "name": "flows.spec.ts > login per role > login admin shows correct nav",
+          "passed": true,
+          "details": ""
+        },
+        {
+          "name": "flows.spec.ts > patient flow > search, book, assert appointment appears",
+          "passed": true,
+          "details": ""
+        },
+        {
+          "name": "flows.spec.ts > professional flow > record encounter",
+          "passed": false,
+          "details": "[\"\\u001b[31mTest timeout of 150000ms exceeded.\\u001b[39m\"]"
+        },
+        {
+          "name": "flows.spec.ts > patient history > history contains encounter",
+          "passed": false,
+          "details": "[\"Error: \\u001b[2mexpect(\\u001b[22m\\u001b[31mreceived\\u001b[39m\\u001b[2m).\\u001b[22mtoContain\\u001b[2m(\\u001b[22m\\u001b[32mexpected\\u001b[39m\\u001b[2m) // indexOf\\u001b[22m\\n\\nExpected substring: \\u001b[32m\\\"Diagnóstico de prueba\\\"\\u001b[39m\\nReceived string:    \\u001b[31m\\\"Nov 6, 2026, 5:33 PMversion 2NotesHistoria clínica 1794004403354DiagnosisControl anualReplaces encounter #1Attachmentsanalisis.pdfOpen appointment #2Nov 6, 2026, 5:33 PMversion 1NotesControl de rutina 1794004402191DiagnosisHipertensión leveOpen appointment #2\\\"\\u001b[39m\"]"
+        },
+        {
+          "name": "flows.spec.ts > patient cancel > cancel appointment removes it",
+          "passed": false,
+          "details": "[\"Error: \\u001b[2mexpect(\\u001b[22m\\u001b[31mlocator\\u001b[39m\\u001b[2m).\\u001b[22mtoHaveCount\\u001b[2m(\\u001b[22m\\u001b[32mexpected\\u001b[39m\\u001b[2m)\\u001b[22m failed\\n\\nLocator:  locator('[data-appointment-id=\\\"5\\\"]')\\nExpected: \\u001b[32m0\\u001b[39m\\nReceived: \\u001b[31m1\\u001b[39m\\nTimeout:  10000ms\\n\\nCall log:\\n\\u001b[2m  - Expect \\\"toHaveCount\\\" locator('[data-appointment-id=\\\"5\\\"]') with timeout 10000ms\\u001b[22m\\n\\u001b[2m  - waiting for locator('[data-appointment-id=\\\"5\\\"]')\\u001b[22m\\n\\u001b[2m    24 × locator resolved to 1 element\\u001b[22m\\n\\u001b[2m       - unexpected value \\\"1\\\"\\u001b[22m\\n\"]"
+        }
+      ],
+      "summary": {
+        "total": 8,
+        "passed": 5,
+        "failed": 3
+      }
+    },
+    {
+      "battery": "battery2-schema",
+      "passed": true,
+      "checks": [
+        {
+          "name": "table-usuario",
+          "passed": true,
+          "details": ""
+        },
+        {
+          "name": "table-rol",
+          "passed": true,
+          "details": ""
+        },
+        {
+          "name": "table-paciente",
+          "passed": true,
+          "details": ""
+        },
+        {
+          "name": "table-profesional",
+          "passed": true,
+          "details": ""
+        },
+        {
+          "name": "table-disponibilidad",
+          "passed": true,
+          "details": ""
+        },
+        {
+          "name": "table-cita",
+          "passed": true,
+          "details": ""
+        },
+        {
+          "name": "table-encuentro",
+          "passed": true,
+          "details": ""
+        },
+        {
+          "name": "table-adjunto",
+          "passed": true,
+          "details": ""
+        },
+        {
+          "name": "table-auditoria",
+          "passed": true,
+          "details": ""
+        },
+        {
+          "name": "fk-cita-paciente_id",
+          "passed": true,
+          "details": ""
+        },
+        {
+          "name": "fk-cita-profesional_id",
+          "passed": true,
+          "details": ""
+        },
+        {
+          "name": "fk-encuentro-cita_id",
+          "passed": true,
+          "details": ""
+        },
+        {
+          "name": "fk-adjunto-encuentro_id",
+          "passed": true,
+          "details": ""
+        },
+        {
+          "name": "fk-auditoria-usuario_id",
+          "passed": true,
+          "details": ""
+        },
+        {
+          "name": "notnull-cita.paciente_id",
+          "passed": true,
+          "details": ""
+        },
+        {
+          "name": "notnull-cita.profesional_id",
+          "passed": true,
+          "details": ""
+        },
+        {
+          "name": "notnull-cita.franja_inicio",
+          "passed": true,
+          "details": ""
+        },
+        {
+          "name": "notnull-cita.estado",
+          "passed": true,
+          "details": ""
+        },
+        {
+          "name": "notnull-encuentro.version",
+          "passed": true,
+          "details": ""
+        },
+        {
+          "name": "partial-unique-cita-professional-slot",
+          "passed": true,
+          "details": ""
+        },
+        {
+          "name": "check-cita-estado",
+          "passed": true,
+          "details": ""
+        },
+        {
+          "name": "check-encuentro-version",
+          "passed": true,
+          "details": ""
+        },
+        {
+          "name": "index-cita-franja_inicio",
+          "passed": true,
+          "details": ""
+        },
+        {
+          "name": "index-cita-paciente_id",
+          "passed": true,
+          "details": ""
+        }
+      ],
+      "summary": {
+        "total": 24,
+        "passed": 24,
+        "failed": 0
+      }
+    },
+    {
+      "battery": "battery3-abuse",
+      "passed": false,
+      "checks": [
+        {
+          "name": "patient-cannot-list-admin-users",
+          "passed": true,
+          "details": ""
+        },
+        {
+          "name": "staff-cannot-read-clinical-history",
+          "passed": true,
+          "details": ""
+        },
+        {
+          "name": "patient-cannot-read-other-patient-history",
+          "passed": true,
+          "details": ""
+        },
+        {
+          "name": "professional-cannot-read-unassigned-patient-history",
+          "passed": false,
+          "details": "expected 403 got 200: {\"patientId\":3,\"patientName\":\"Carla Rojas\",\"encounters\":[]}"
+        },
+        {
+          "name": "patient-cannot-delete-others-appointment",
+          "passed": true,
+          "details": ""
+        },
+        {
+          "name": "no-token-returns-401",
+          "passed": true,
+          "details": ""
+        },
+        {
+          "name": "undeclared-field-rejected-422",
+          "passed": true,
+          "details": ""
+        },
+        {
+          "name": "double-booking-one-201-one-409",
+          "passed": true,
+          "details": ""
+        }
+      ],
+      "summary": {
+        "total": 8,
+        "passed": 7,
+        "failed": 1
+      }
+    },
+    {
+      "battery": "battery4-coherence",
+      "passed": false,
+      "checks": [
+        {
+          "name": "unfulfilled-contracts",
+          "passed": false,
+          "details": "count=13: GET :param/auth/authorize?:param (e2e/helpers.ts:70); GET :param/auth/login?request_id=:param (e2e/helpers.ts:81); POST :param/auth/login (e2e/helpers.ts:89); POST :param/auth/token (e2e/helpers.ts:104); GET :param:param (e2e/helpers.ts:126); POST :param:param (frontend/dist/assets/index-umOT63mG.js:67); POST :param:param (frontend/dist/assets/index-umOT63mG.js:67); POST :param:param (frontend/dist/assets/index-umOT63mG.js:67); POST :param/auth/login (frontend/dist/assets/index-umOT63mG.js:67); GET :param:param (frontend/src/api/client.ts:63); POST :param:param (frontend/src/api/client.ts:115); GET :param:param (frontend/src/api/client.ts:147); POST :param/auth/login (frontend/src/screens/SCR01Login.tsx:61)"
+        },
+        {
+          "name": "exposed-not-invoked",
+          "passed": true,
+          "details": "informational count=14"
+        }
+      ],
+      "summary": {
+        "total": 2,
+        "passed": 1,
+        "failed": 1
+      }
+    }
+  ],
+  "passed": false
+}

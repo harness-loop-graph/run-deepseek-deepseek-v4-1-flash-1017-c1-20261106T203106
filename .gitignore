@@ -1,0 +1,11 @@
+node_modules/
+dist/
+coverage/
+test-results/
+playwright-report/
+.env
+*.log
+backend/uploads/
+build/
+.env*
+reasoning.jsonl
