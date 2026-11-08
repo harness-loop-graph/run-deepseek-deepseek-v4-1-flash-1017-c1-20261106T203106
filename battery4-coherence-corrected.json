@@ -1,0 +1,21 @@
+{
+  "battery": "battery4-coherence",
+  "passed": true,
+  "checks": [
+    {
+      "name": "unfulfilled-contracts",
+      "passed": true,
+      "details": "unresolved=3: GET ${API_BASE_URL}${path} (frontend/src/api/client.ts:63); POST ${API_BASE_URL}${path} (frontend/src/api/client.ts:115); GET ${API_BASE_URL}${path} (frontend/src/api/client.ts:147)"
+    },
+    {
+      "name": "exposed-not-invoked",
+      "passed": true,
+      "details": "informational count=13"
+    }
+  ],
+  "summary": {
+    "total": 2,
+    "passed": 2,
+    "failed": 0
+  }
+}
